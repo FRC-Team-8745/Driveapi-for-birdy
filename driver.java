@@ -1,10 +1,10 @@
 // Driver api made for birdy.
+// This is made to controll birdy for testing
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.Joystick;
 
 public class driver {
     public static Spark elevator = new Spark(2);
@@ -16,14 +16,17 @@ public class driver {
     public static Integer compon = 0;
     public static Integer beakopen = 0;
     public static Integer headout = 0;
-  
+    
+    //driver.elevup(<speed>) is used is used for making the elevator go up
     public static void elevup(Integer speed) {
         elevator.set(speed);
     }
+    //driver.elevdown(<speed>) is used for making the elevator go down
     public static void elevdown(Integer speed) {
         elevator.set(-speed);
     }
-    public static void comptop() {
+    //driver.comptog() turns the compressor on and off (It assumes the compressor is off when the program starts.)
+    public static void comptog() {
         if (compon == 1) {
             compon = 0;
             compressor.stop();
@@ -32,6 +35,7 @@ public class driver {
             compressor.start();
         }
     }
+    //driver.beaktog() toggles the beak (It assumes beak is closed when the program starts.)
     public static void beaktog() {
         beakOpen.setPulseDuration(0.5);
         beakClose.setPulseDuration(0.5);
@@ -43,6 +47,7 @@ public class driver {
             beakOpen.startPulse();
         }
     }
+    //driver.headtog() toggles the head position (It assumes that the head is not extended at the start of the program.)
     public static void headtog() {
         headExtend.setPulseDuration(0.5);
         headFlatten.setPulseDuration(0.5);
