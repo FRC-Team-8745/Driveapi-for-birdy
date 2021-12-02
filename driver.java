@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Compressor;
 
 public class driver {
+    public static Spark leftMotor = new Spark(1);
+    public static Spark rightMotor = new Spark(0);
     public static Spark elevator = new Spark(2);
     public static Solenoid beakOpen = new Solenoid(0);
     public static Solenoid beakClose = new Solenoid(1);
@@ -58,5 +60,16 @@ public class driver {
             headout = 1;
             headExtend.startPulse();
         }
+    }
+    //driver.drive(<speed>) makes the robot go at the speed given (negative speed makes it go backwards)
+    public static void drive(Integer speed) {
+        leftMotor.set(speed);
+        //right motor is backwards
+        rightMotor.set(-speed);
+    }
+    public static void mototcont(Integer right, Integer left) {
+        leftMotor.set(left);
+        //right motor is backwards
+        rightMotor.set(-right);
     }
 }
