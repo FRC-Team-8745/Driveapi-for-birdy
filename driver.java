@@ -1,4 +1,4 @@
-package controll;
+package control;
 // Driver api made for birdy.
 // This is made to controll birdy for testing
 
