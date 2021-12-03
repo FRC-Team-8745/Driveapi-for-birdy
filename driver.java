@@ -15,10 +15,17 @@ public class driver {
     private static Solenoid headFlatten = new Solenoid(2);
     private static Solenoid headExtend = new Solenoid(3);
     private static Compressor compressor = new Compressor(0);
-    private static boolean compon = true;
-    private static boolean beakopen = true;
-    private static boolean headout = true;
-    
+    private static boolean compon = false;
+    private static boolean beakopen = false;
+    private static boolean headout = false;
+    //run this in the init section of your code to set the robot the way it is supposed to be
+    public static void init() {
+        compressor.stop();
+        beakClose.setPulseDuration(0.5);
+        beakClose.startPulse();
+        headFlatten.setPulseDuration(0.5);
+        headFlatten.startPulse();
+    }
     //driver.elevup(<speed>) is used is used for making the elevator go up
     public static void elevup(Integer speed) {
         elevator.set(speed);
