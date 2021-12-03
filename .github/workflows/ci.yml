@@ -14,8 +14,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: setup
         run: |
-          git clone --depth 1 https://github.com/FRC-Team-8745/drivetrain-new
+          git clone https://github.com/FRC-Team-8745/drivetrain-new
           cd drivetrain-new
+          git pull
+          git checkout api
           git pull
           cd src/main/java
           mkdir controll
