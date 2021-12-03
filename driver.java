@@ -7,17 +7,17 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Compressor;
 
 public class driver {
-    public static Spark leftMotor = new Spark(1);
-    public static Spark rightMotor = new Spark(0);
-    public static Spark elevator = new Spark(2);
-    public static Solenoid beakOpen = new Solenoid(0);
-    public static Solenoid beakClose = new Solenoid(1);
-    public static Solenoid headFlatten = new Solenoid(2);
-    public static Solenoid headExtend = new Solenoid(3);
-    public static Compressor compressor = new Compressor(0);
-    public static boolean compon = true;
-    public static boolean beakopen = true;
-    public static boolean headout = true;
+    private static Spark leftMotor = new Spark(1);
+    private static Spark rightMotor = new Spark(0);
+    private static Spark elevator = new Spark(2);
+    private static Solenoid beakOpen = new Solenoid(0);
+    private static Solenoid beakClose = new Solenoid(1);
+    private static Solenoid headFlatten = new Solenoid(2);
+    private static Solenoid headExtend = new Solenoid(3);
+    private static Compressor compressor = new Compressor(0);
+    private static boolean compon = true;
+    private static boolean beakopen = true;
+    private static boolean headout = true;
     
     //driver.elevup(<speed>) is used is used for making the elevator go up
     public static void elevup(Integer speed) {
