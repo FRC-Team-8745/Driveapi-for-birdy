@@ -67,7 +67,8 @@ public class driver {
         //right motor is backwards
         rightMotor.set(-speed);
     }
-    public static void mototcont(Integer right, Integer left) {
+    //driver.motorcont() tells a speed for each motor to go at
+    public static void motorcont(Integer right, Integer left) {
         leftMotor.set(left);
         //right motor is backwards
         rightMotor.set(-right);
