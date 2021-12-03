@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Compressor;
 
 public class driver {
-    private static Spark leftMotor = new Spark(1)
+    private static Spark leftMotor = new Spark(1);
     private static Spark rightMotor = new Spark(0);
     private static Spark elevator = new Spark(2);
     private static Solenoid beakOpen = new Solenoid(0);
