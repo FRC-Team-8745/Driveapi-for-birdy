@@ -15,7 +15,9 @@ jobs:
       - name: setup
         run: |
           git clone --depth 1 https://github.com/FRC-Team-8745/drivetrain-new
-          cd drivetrain-new && git checkout api-ci
+          cd drivetrain-new
+          git pull
+          git checkout api-ci
           git pull
           cd src/main/java
           mkdir controll
