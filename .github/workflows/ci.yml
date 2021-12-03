@@ -1,0 +1,28 @@
+
+name: CI
+
+# Triggers the workflow on push or pull request events
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: setup
+        run: |
+          git clone --depth 1 https://github.com/FRC-Team-8745/drivetrain-new
+          cd drivetrain-new && git checkout api-ci
+          git pull
+          cd src/main/java
+          mkdir controll
+          cd ../../..
+          cd ..
+          cp driver.java drivetrain-new/src/main/java/controll
+      - name: build
+        run: |
+          cd drivetrain-new
+          ./gradlew build
