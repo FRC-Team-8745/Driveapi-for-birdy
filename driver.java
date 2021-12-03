@@ -15,9 +15,9 @@ public class driver {
     public static Solenoid headFlatten = new Solenoid(2);
     public static Solenoid headExtend = new Solenoid(3);
     public static Compressor compressor = new Compressor(0);
-    public static Integer compon = 0;
-    public static Integer beakopen = 0;
-    public static Integer headout = 0;
+    public static boolean compon = true;
+    public static boolean beakopen = true;
+    public static boolean headout = true;
     
     //driver.elevup(<speed>) is used is used for making the elevator go up
     public static void elevup(Integer speed) {
@@ -29,11 +29,11 @@ public class driver {
     }
     //driver.comptog() turns the compressor on and off (It assumes the compressor is off when the program starts.)
     public static void comptog() {
-        if (compon == 1) {
-            compon = 0;
+        if (compon) {
+            compon = false;
             compressor.stop();
         } else {
-            compon = 1;
+            compon = true;
             compressor.start();
         }
     }
@@ -41,11 +41,11 @@ public class driver {
     public static void beaktog() {
         beakOpen.setPulseDuration(0.5);
         beakClose.setPulseDuration(0.5);
-        if (beakopen == 1) {
-            beakopen = 0;
+        if (beakopen) {
+            beakopen = false;
             beakClose.startPulse();
         } else {
-            beakopen = 1;
+            beakopen = true;
             beakOpen.startPulse();
         }
     }
@@ -53,11 +53,11 @@ public class driver {
     public static void headtog() {
         headExtend.setPulseDuration(0.5);
         headFlatten.setPulseDuration(0.5);
-        if (headout == 1) {
-            headout = 0;
+        if (headout) {
+            headout = false;
             headFlatten.startPulse();
         } else {
-            headout = 1;
+            headout = true;
             headExtend.startPulse();
         }
     }
