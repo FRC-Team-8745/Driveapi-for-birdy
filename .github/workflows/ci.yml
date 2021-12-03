@@ -20,10 +20,10 @@ jobs:
           git checkout api
           git pull
           cd src/main/java
-          mkdir controll
+          mkdir control
           cd ../../..
           cd ..
-          cp driver.java drivetrain-new/src/main/java/controll
+          cp driver.java drivetrain-new/src/main/java/control
       - name: build
         run: |
           cd drivetrain-new
