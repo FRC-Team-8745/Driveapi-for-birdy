@@ -2,11 +2,13 @@ package control;
 // Driver api made for birdy.
 // This is made to controll birdy for testing
 
+// Import the FRC API's
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Compressor;
 
 public class driver {
+    // Get connection to the robots parts
     private static Spark leftMotor = new Spark(1);
     private static Spark rightMotor = new Spark(0);
     private static Spark elevator = new Spark(2);
@@ -15,9 +17,12 @@ public class driver {
     private static Solenoid headFlatten = new Solenoid(2);
     private static Solenoid headExtend = new Solenoid(3);
     private static Compressor compressor = new Compressor(0);
+    
+    // Variables for toggle
     private static boolean compon = false;
     private static boolean beakopen = false;
     private static boolean headout = false;
+    
     //run this in the init section of your code to set the robot the way it is supposed to be
     public static void init() {
         compressor.stop();
