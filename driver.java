@@ -1,88 +1,64 @@
 package control;
 // Driver api made for birdy.
+
 // This is made to controll birdy for testing
 
-// Import the FRC API's
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Compressor;
+//Import the central system for the components
+import frc.robot.CentralComponents.*;
 
 public class driver {
-    // Get connection to the robots parts
-    private static Spark leftMotor = new Spark(1);
-    private static Spark rightMotor = new Spark(0);
-    private static Spark elevator = new Spark(2);
-    private static Solenoid beakOpen = new Solenoid(0);
-    private static Solenoid beakClose = new Solenoid(1);
-    private static Solenoid headFlatten = new Solenoid(2);
-    private static Solenoid headExtend = new Solenoid(3);
-    private static Compressor compressor = new Compressor(0);
-    
-    // Variables for toggle
-    private static boolean compon = false;
-    private static boolean beakopen = false;
-    private static boolean headout = false;
-    
-    //run this in the init section of your code to set the robot the way it is supposed to be
+
+    // run this in the init section of your code to set the robot the way it is
+    // supposed to be
     public static void init() {
-        compressor.stop();
-        beakClose.setPulseDuration(0.5);
-        beakClose.startPulse();
-        headFlatten.setPulseDuration(0.5);
-        headFlatten.startPulse();
+        Components.compressor.stop();
+        Components.head.set(Value.kForward);
+        Components.beak.set(Value.kForward);
     }
-    //driver.elevup(<speed>) is used is used for making the elevator go up
+
+    // driver.elevup(<speed>) is used is used for making the elevator go up
     public static void elevup(Integer speed) {
-        elevator.set(speed);
+        Components.elevator.set(speed);
     }
-    //driver.elevdown(<speed>) is used for making the elevator go down
+
+    // driver.elevdown(<speed>) is used for making the elevator go down
     public static void elevdown(Integer speed) {
-        elevator.set(-speed);
+        Components.elevator.set(-speed);
     }
-    //driver.comptog() turns the compressor on and off (It assumes the compressor is off when the program starts.)
+
+    // driver.comptog() turns the compressor on and off
     public static void comptog() {
-        if (compon) {
-            compon = false;
-            compressor.stop();
+        if (Components.compressor.enabled()) {
+            Components.compressor.stop();
         } else {
-            compon = true;
-            compressor.start();
+            Components.compressor.start();
         }
     }
-    //driver.beaktog() toggles the beak (It assumes beak is closed when the program starts.)
+
+    // driver.beaktog() toggles the beak (It assumes beak is closed when the program
+    // starts.)
     public static void beaktog() {
-        beakOpen.setPulseDuration(0.5);
-        beakClose.setPulseDuration(0.5);
-        if (beakopen) {
-            beakopen = false;
-            beakClose.startPulse();
-        } else {
-            beakopen = true;
-            beakOpen.startPulse();
-        }
+        Components.beak.toggle();
     }
-    //driver.headtog() toggles the head position (It assumes that the head is not extended at the start of the program.)
+
+    // driver.headtog() toggles the head position (It assumes that the head is not
+    // extended at the start of the program.)
     public static void headtog() {
-        headExtend.setPulseDuration(0.5);
-        headFlatten.setPulseDuration(0.5);
-        if (headout) {
-            headout = false;
-            headFlatten.startPulse();
-        } else {
-            headout = true;
-            headExtend.startPulse();
-        }
+        Components.head.toggle();
     }
-    //driver.drive(<speed>) makes the robot go at the speed given (negative speed makes it go backwards)
+
+    // driver.drive(<speed>) makes the robot go at the speed given (negative speed
+    // makes it go backwards)
     public static void drive(Integer speed) {
-        leftMotor.set(speed);
-        //right motor is backwards
-        rightMotor.set(-speed);
+        Components.leftMotor.set(speed);
+        // right motor is backwards
+        Components.rightMotor.set(-speed);
     }
-    //driver.motorcont() tells a speed for each motor to go at
+
+    // driver.motorcont() tells a speed for each motor to go at
     public static void motorcont(Integer right, Integer left) {
-        leftMotor.set(left);
-        //right motor is backwards
-        rightMotor.set(-right);
+        Components.leftMotor.set(left);
+        // right motor is backwards
+        Components.rightMotor.set(-right);
     }
 }
