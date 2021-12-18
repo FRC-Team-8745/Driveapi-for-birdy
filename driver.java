@@ -3,9 +3,6 @@ package control;
 
 // This is made to controll birdy for testing
 
-//Import the central system for the components
-import frc.robot.CentralComponents.*;
-
 public class driver {
 
     // run this in the init section of your code to set the robot the way it is
