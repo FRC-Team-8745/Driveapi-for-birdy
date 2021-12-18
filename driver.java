@@ -1,6 +1,8 @@
 package control;
 // Driver api made for birdy.
 
+import control.Components;
+
 // This is made to controll birdy for testing
 
 public class driver {

@@ -1,4 +1,4 @@
-package frc.robot.CentralComponents;
+package control;
 
 // Declare imports for the Joystick, Solenoids, Sparks, and Compressor
 import edu.wpi.first.wpilibj.Spark;
