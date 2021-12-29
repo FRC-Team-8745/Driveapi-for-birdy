@@ -23,8 +23,8 @@ jobs:
           mkdir control
           cd ../../..
           cd ..
-          cp driver.java drivetrain-new/src/main/java/control
+          cp driver.java Drivetrain-Current/src/main/java/control
       - name: build
         run: |
-          cd drivetrain-new
+          cd Drivetrain-Current
           ./gradlew build
