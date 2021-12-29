@@ -15,7 +15,7 @@ jobs:
       - name: setup
         run: |
           git clone https://github.com/FRC-Team-8745/Drivetrain-Current.git
-          cd drivetrain-new
+          cd Drivetrain-Current
           git pull
           git checkout api
           git pull
