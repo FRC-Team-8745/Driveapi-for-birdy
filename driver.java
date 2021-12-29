@@ -1,7 +1,7 @@
 package control;
 // Driver api made for birdy.
 
-import control.Components;
+import frc.robot.CentralComponents.*;
 
 // This is made to controll birdy for testing
 
